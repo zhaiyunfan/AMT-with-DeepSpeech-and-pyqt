@@ -1,1 +1,1 @@
-pyuic5 -o HelloWorld.py HelloWorld.ui
+pyuic5 -o HelloWorld.py HelloWorld.ui & C:/ProgramData/Anaconda3/envs/srtp/python.exe d:/Learn/GitHub/AMT-with-DeepSpeech-and-pyqt/qt/main.py
