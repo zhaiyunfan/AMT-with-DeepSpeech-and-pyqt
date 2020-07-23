@@ -6,25 +6,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>640</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>HelloWorld</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>110</y>
-      <width>80</width>
-      <height>15</height>
+      <x>120</x>
+      <y>100</y>
+      <width>421</width>
+      <height>101</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Roughwork Demo</family>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>HelloWorld</string>
+     <string>HELLO PYQT</string>
     </property>
    </widget>
   </widget>
@@ -33,22 +39,52 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>640</width>
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menu">
     <property name="title">
-     <string>File</string>
+     <string>傻逼</string>
     </property>
-    <addaction name="actionExit"/>
+    <addaction name="actionsyx"/>
    </widget>
-   <addaction name="menuFile"/>
+   <widget class="QMenu" name="menuQT">
+    <property name="title">
+     <string>QT</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>真难装</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>还是</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuPT">
+    <property name="title">
+     <string>PY</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>省头发</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menuQT"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menuPT"/>
+   <addaction name="menu_4"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionExit">
+  <action name="actionsyx">
    <property name="text">
-    <string>Exit</string>
+    <string>syx</string>
    </property>
   </action>
  </widget>

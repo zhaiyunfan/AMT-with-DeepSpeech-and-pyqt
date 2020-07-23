@@ -1,0 +1,1 @@
+pyuic5 -o HelloWorld.py HelloWorld.ui
