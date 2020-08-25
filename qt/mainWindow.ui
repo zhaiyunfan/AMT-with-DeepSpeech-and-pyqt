@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="statusTip">
+     <string>开始工作</string>
+    </property>
+    <property name="title">
+     <string>开始</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="statusTip">
+      <string>识谱菜单</string>
+     </property>
+     <property name="title">
+      <string>识谱</string>
+     </property>
+     <addaction name="action_3"/>
+    </widget>
+    <widget class="QMenu" name="menu_3">
+     <property name="statusTip">
+      <string>改谱菜单</string>
+     </property>
+     <property name="title">
+      <string>改谱</string>
+     </property>
+     <addaction name="action_VHV"/>
+    </widget>
+    <addaction name="menu_2"/>
+    <addaction name="menu_3"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="action_5"/>
+    <addaction name="action_6"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_4"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionupload">
+   <property name="text">
+    <string>上传</string>
+   </property>
+  </action>
+  <action name="actionstart_local">
+   <property name="text">
+    <string>start local VHV</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>上传</string>
+   </property>
+   <property name="statusTip">
+    <string>点击以选取要识谱的mp3文件</string>
+   </property>
+  </action>
+  <action name="action_VHV">
+   <property name="text">
+    <string>启动本地VHV服务器</string>
+   </property>
+   <property name="statusTip">
+    <string>点击以在本地服务器上启动**kern曲谱编辑器</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>打包</string>
+   </property>
+   <property name="statusTip">
+    <string/>
+   </property>
+  </action>
+  <action name="action_5">
+   <property name="text">
+    <string>关于</string>
+   </property>
+   <property name="statusTip">
+    <string>点击以了解关于信息</string>
+   </property>
+  </action>
+  <action name="action_6">
+   <property name="text">
+    <string>操作说明</string>
+   </property>
+   <property name="statusTip">
+    <string>点击以学习如何使用本软件</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
