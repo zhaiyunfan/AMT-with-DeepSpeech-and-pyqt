@@ -6,20 +6,182 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1000</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>0</y>
+      <width>20</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="uploadLabel">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>50</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>等待选择文件</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>300</y>
+      <width>400</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="uploadProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>170</y>
+      <width>200</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="downloadLabel">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>370</y>
+      <width>200</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>等待服务器处理</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="downloadProgressBar">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>470</y>
+      <width>200</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="upPushButton">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>110</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>上传乐段</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="upSelectButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>选择乐段</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="downloadSelectButton">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>410</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>选择路径</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>410</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>下载曲谱</string>
+    </property>
+   </widget>
+   <widget class="QWebEngineView" name="webEngineView">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>0</y>
+      <width>571</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="url">
+     <url>
+      <string>about:blank</string>
+     </url>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1000</width>
      <height>26</height>
     </rect>
    </property>
@@ -74,10 +236,10 @@
   </action>
   <action name="action_3">
    <property name="text">
-    <string>上传</string>
+    <string>上传新文件</string>
    </property>
    <property name="statusTip">
-    <string>点击以选取要识谱的mp3文件</string>
+    <string>点击以选取新的要识谱的mp3文件</string>
    </property>
   </action>
   <action name="action_VHV">
@@ -113,6 +275,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
