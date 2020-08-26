@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
+    <width>800</width>
     <height>600</height>
    </rect>
   </property>
@@ -134,7 +134,7 @@
      <string>选择乐段</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="downloadSelectButton">
+   <widget class="QPushButton" name="downSelectButton">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -160,13 +160,23 @@
      <string>下载曲谱</string>
     </property>
    </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>25</y>
+      <width>300</width>
+      <height>500</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
+     <width>800</width>
      <height>26</height>
     </rect>
    </property>
@@ -197,6 +207,7 @@
     </widget>
     <addaction name="menu_2"/>
     <addaction name="menu_3"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menu_4">
     <property name="title">
@@ -257,6 +268,11 @@
    </property>
    <property name="statusTip">
     <string>点击以学习如何使用本软件</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>退出</string>
    </property>
   </action>
  </widget>

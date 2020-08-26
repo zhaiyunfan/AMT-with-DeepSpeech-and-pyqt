@@ -1,3 +1,4 @@
 {
     "python.pythonPath": "C:\\ProgramData\\Anaconda3\\envs\\srtp\\python.exe"
+    "python.autoComplete.extraPaths": ["D:\\Learn\\GitHub\\AMT-with-DeepSpeech-and-pyqt\\qt"]
 }
