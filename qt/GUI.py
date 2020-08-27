@@ -109,9 +109,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "FastAMT"))
         self.uploadLabel.setText(_translate("MainWindow", "等待选择文件"))
-        self.downloadLabel.setText(_translate("MainWindow", "等待服务器处理"))
+        self.downloadLabel.setText(_translate("MainWindow", "等待选择路径"))
         self.upPushButton.setText(_translate("MainWindow", "上传乐段"))
         self.upSelectButton.setText(_translate("MainWindow", "选择乐段"))
         self.downSelectButton.setText(_translate("MainWindow", "选择路径"))

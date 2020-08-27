@@ -46,3 +46,32 @@
 ### 2020-8-26
 
 完成了GUI程序的UI设计与布局，webview组件已合并到代码中，只需在程序中一键在localhost上启动VHV本地服务，QWebEngineView组件就会自动打开VHV编辑器
+
+### 2020-8-27
+
+一些依赖项流程：
+
+先安装[RubyInstallers](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.6-1/rubyinstaller-devkit-2.6.6-1-x64.exe)，然后运行
+
+```cmd
+ridk install
+```
+
+接着安装bundler和jekyll
+
+```cmd
+gem install jekyll bundler
+```
+
+这样就有了基本的jekyll环境
+
+然后
+
+```bash
+git clone https://github.com/humdrum-tools/verovio-humdrum-viewer
+bundle exec jekyll serve --watch    //在clone后的目录下
+```
+
+即可在 http://127.0.0.1:2000 启动本地VHV 上面这几条命令行命令可以封装在python里方便部署安装
+
+目前的todo:一个上传下载模块，一个日志模块
