@@ -147,7 +147,7 @@
      <string>选择路径</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="downPushButton">
     <property name="geometry">
      <rect>
       <x>240</x>

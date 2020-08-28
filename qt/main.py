@@ -1,16 +1,22 @@
-import os,sys,qdarkstyle,webbrowser,datetime
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
+import os,sys,socket,qdarkstyle,webbrowser,datetime
+from PyQt5.Qt import QThread
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog,QInputDialog,QMessageBox
 from functools import partial
 
 import GUI
 
-# 下面是一些触发函数
+# 下面是一些自定义函数
+def getIP(ui)->str: # 启动IP地址的输入框
+    text, ok=QInputDialog.getText(MainWindow, 'Text Input Dialog', '输入服务器ip地址')
+    if ok and text:
+        return str(text)
 
-def timePrint(ui):
+def timePrint(ui):  # 打印当前时间
     now_time = datetime.datetime.now()
     now_time = datetime.datetime.strftime(now_time,'%H:%M:%S')
     ui.textBrowser.append(now_time)
 
+# 下面是一些触发函数
 def clickExit(app):
     app.quit()
 
@@ -24,7 +30,7 @@ def openFile(ui,MainWindow):
     get_filename_path, ok = QFileDialog.getOpenFileName(MainWindow,
                                         "选取要上传的文件",
                                     "/",
-                                        "All Files (*);;Text Files (*.mp3)")
+                                        "All Files (*);;Text Files (*.wav)")
     if ok:
         timePrint(ui)
         ui.textBrowser.append("已选择上传音频文件路径为" + str(get_filename_path)+"\n")
@@ -42,6 +48,27 @@ def openDirectory(ui,MainWindow):
         ui.directory_path = get_directory_path
         # print(ui.directory_path)
 
+def uploadPush(ui,c):
+    cmd = "upload"
+    c.send(bytes(cmd,encoding='gbk'))         # 发送用户输入的命令
+    data = c.recv(1024)                       # 设定接受数据大小
+    # print(str(data,encoding='gbk'))         # 打印出来，看起来直观，测试用，可以去除
+    filepath = ui.filename_path               # 输入要从上传的文件
+    with open(filepath,"rb") as f:            # 以只读方式打开指定的文件
+        file = f.read()                       # 以byte 的方式读取文件内容
+        datas = c.sendall(file)               # 发送文件内容
+    data = c.recv(20480)
+
+def downloadPush(ui,c):
+    cmd = "down"                                  # 获取用户输入的命令
+    c.send(bytes(cmd,encoding='gbk'))             # 发送用户输入的命令
+    filepath = "/home/zhaiyunfan/文档/data.txt"   # 输入要从服务器下载的文件
+    c.send(bytes(filepath,encoding='gbk'))        # 向服务器发送我们要下载的信息
+    data = c.recv(20480)                          # 指定接受数据大小
+    with open("data.krn","wb") as f:              # 打开本地文件，将接受到的数据写入本地指定的目录
+        f.write(data)    
+    data = c.recv(20480)
+
 # 上面是一些触发函数
 
 if __name__ == '__main__':
@@ -52,14 +79,24 @@ if __name__ == '__main__':
     ui.setupUi(MainWindow)
     MainWindow.show()
 
+    # 连接服务器
+    # HOST = "192.168.43.198"          # 定义服务器ip
+    HOST = getIP(MainWindow)
+    PORT = 5555                      # 定义端口号
+    addr = (HOST,PORT)               # 由于使用socket进行连接，需要把ip和端口先转换为元组
+    c = socket.socket(socket.AF_INET,socket.SOCK_STREAM)     # 设定了网络连接方式，以及传输使用的协议
+    QMessageBox.about(MainWindow, "提示", "正在连接服务器，请稍候")
+    c.connect(addr)                  #连接服务器  
+    QMessageBox.about(MainWindow, "提示", "服务器连接成功")
     # 在下面绑定信号和槽
-
     ui.upSelectButton.clicked.connect(partial(openFile, ui,MainWindow))
     ui.downSelectButton.clicked.connect(partial(openDirectory,ui,MainWindow))
+
+    ui.upPushButton.clicked.connect(partial(uploadPush,ui,c))
+    ui.downPushButton.clicked.connect(partial(downloadPush,ui,c))
 
     ui.actionExit.triggered.connect(partial(clickExit, app))
     ui.action_VHV.triggered.connect(partial(clickVHV,ui))
     # 在上面绑定信号和槽
 
     sys.exit(app.exec_())
-

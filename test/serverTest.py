@@ -16,7 +16,7 @@ def get_file():
     conn.send("please sendfile:")         # 向客户端发送提示信息
     while True:
         data = conn.recv(1024)            # 设置接受数据大小
-        with open("/root/Desktop/up_load/data.txt","ab") as f:    # 向指定的目录写入客户端发送过来的信息
+        with open("/root/zhaiyunfan/文档/data.mp3","ab") as f:    # 向指定的目录写入客户端发送过来的信息
             f.write(data)
         if not data:
             break
