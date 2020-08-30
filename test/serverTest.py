@@ -3,7 +3,7 @@
 import socket           # 调用socket库
 import os               # 调用os库
 
-HOST = "192.168.43.198"          # 定义服务器ip
+HOST = "10.18.148.102"          # 定义服务器ip
 PORT = 5555                      # 定义端口号
 addr = (HOST,PORT)               # 由于使用socket进行连接，需要把ip和端口先转换为元组
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)      # 设定了网络连接方式，以及传输使用的协议
@@ -16,7 +16,7 @@ def get_file():
     conn.send("please sendfile:")         # 向客户端发送提示信息
     while True:
         data = conn.recv(1024)            # 设置接受数据大小
-        with open("/root/zhaiyunfan/文档/data.mp3","ab") as f:    # 向指定的目录写入客户端发送过来的信息
+        with open("/root/zhaiyunfan/文档/data.wav","ab") as f:    # 向指定的目录写入客户端发送过来的信息
             f.write(data)
         if not data:
             break
